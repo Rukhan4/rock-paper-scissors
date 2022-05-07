@@ -55,10 +55,12 @@
                     console.log("Tie!")
                 }
                 if (playerScore === 5) {
-                    return "You win the game! :D";
+                    return `You won the game!
+                    Score was Player ${playerScore}: Opponent ${computerScore}`;
                     gameon = false;
                 } else if (computerScore === 5) {
-                    return "You lost the game! D:";
+                    return `You lost the game!
+                    Score was Player ${playerScore}: Opponent ${computerScore}`;
                     gameon = false;
                 }
             }
