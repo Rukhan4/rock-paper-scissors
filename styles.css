@@ -1,5 +1,6 @@
 body {
     background-color: bisque;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .container {
@@ -18,5 +19,71 @@ h1 {
 h2 {
     font-size: 2rem;
     font-weight: bold;
-    color: rgb(164, 31, 216);
+    color: rgb(230, 73, 68);
+}
+
+.options button {
+    color: black;
+    background-color: rgb(253, 191, 97);
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.playerLabel,
+.computerLabel {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(230, 73, 68);
+    padding-left: 15px;
+}
+
+.computerLabel {
+    text-align: center;
+    padding-right: 3px;
+}
+
+.scores {
+    display: flex;
+}
+
+.scores div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border: 5px solid;
+    margin-top: 3px;
+    margin-bottom: 20px;
+    margin-right: 5px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results .result-box {
+    width: 300px;
+    height: 100px;
+    border: 5px solid rgb(27, 27, 31);
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.reset button {
+    margin-top: 40px;
+    background-color: rgb(11, 238, 11);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
 }
