@@ -17,9 +17,23 @@
                 choices.length)];
             return randomItem;
         }
-        for (let i = 0; i < 10; i++) {
-            console.log(computerPlay());
+
+        function oneRound(playerSelection, computerSelection) {
+            playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+            computerSelection = computerPlay();
+            if (playerSelection === computerSelection) {
+                return 'Tie';
+            } else if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
+                (playerSelection === 'paper' && computerSelection === 'rock') ||
+                (playerSelection === 'scissors' && computerSelection === 'paper')) {
+                return 'You win!';
+            } else {
+                return "You lose!"
+            }
         }
+        console.log(oneRound());
+
+
 
     </script>
 
