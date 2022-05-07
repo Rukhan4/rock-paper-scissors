@@ -51,14 +51,15 @@ function game() {
         if (playerScore === 5) {
             gameon = false;
             return `You won the game!
-                    Score was Player ${playerScore}: Opponent ${computerScore}`;
+                    Score was Player ${playerScore} : Opponent ${computerScore}`;
 
         } else if (computerScore === 5) {
             gameon = false;
             return `You lost the game!
-                    Score was Player ${playerScore}: Opponent ${computerScore}`;
+                    Score was Player ${playerScore} : Opponent ${computerScore}`;
 
         }
+        console.log(`Player: ${playerScore} Computer: ${computerScore}`);
     }
 }
 
