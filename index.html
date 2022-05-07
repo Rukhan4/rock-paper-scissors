@@ -19,13 +19,20 @@
 
         function computerPlay() {
             let choices = ['rock', 'paper', 'scissors'];
-            let randomItem = choices[Math.floor(Math.random() *
-                choices.length)];
-            return randomItem;
+            let randomChoice = choices[Math.floor(Math.random() * choices.length)];
+            return randomChoice;
         }
 
         function playRound(playerSelection, computerSelection) {
-            playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+            // validate user input
+            while (true) {
+                playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+                if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+                    break;
+                } else {
+                    alert("Please enter rock, paper, or scissors.");
+                }
+            }
             computerSelection = computerPlay();
             if (playerSelection === computerSelection) {
                 playerWins = false;
