@@ -1,5 +1,10 @@
 let playerScore = 0;
 let computerScore = 0;
+const winnerResults = {
+    computer: ["You lost!", 'red'],
+    player: ["You won!", 'green']
+}
+
 let playerPoints = document.querySelector('#playerScore');
 let options = document.querySelectorAll('div.options button');
 let computerPoints = document.querySelector('#computerScore');
@@ -14,8 +19,7 @@ function computerPlay() {
 }
 
 function getPlayerChoice(e) {
-    getRef = e.target.textContent;
-    playerChoice = getRef.toLowerCase();
+    playerChoice = e.target.id;
     playRound(playerChoice, computerPlay());
 }
 
@@ -26,18 +30,13 @@ function playRound(playerSelection, computerSelection) {
     } else if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'paper' && computerSelection === 'rock') ||
         (playerSelection === 'scissors' && computerSelection === 'paper')) {
-        playerPoints.textContent == ++playerScore;
+        playerPoints.textContent = ++playerScore;
         roundResults.textContent = "You win this round! :)";
     } else {
-        computerPoints.textContent == ++computerScore;
+        computerPoints.textContent = ++computerScore;
         roundResults.textContent = "You lost this round! :(";
     }
     checkWinner();
-}
-
-const winnerResults = {
-    computer: ["You lost!", 'red'],
-    player: ["You won!", 'green']
 }
 
 function checkWinner() {
