@@ -1,8 +1,9 @@
 let playerScore = 0;
 let computerScore = 0;
+let roundsPlayed = 0;
 const winnerResults = {
-    computer: ["You lost!", 'red'],
-    player: ["You won!", 'green']
+    computer: ["You lost", 'red'],
+    player: ["You won", 'green']
 }
 
 let playerPoints = document.querySelector('#playerScore');
@@ -10,16 +11,16 @@ let options = document.querySelectorAll('div.options button');
 let computerPoints = document.querySelector('#computerScore');
 let roundResults = document.querySelector('.result-box');
 
-options.forEach(button => { button.addEventListener('click', getPlayerChoice) });
-
 function computerPlay() {
     let choices = ['rock', 'paper', 'scissors'];
     let randomChoice = choices[Math.floor(Math.random() * choices.length)];
     return randomChoice;
 }
 
-function getPlayerChoice(e) {
-    playerChoice = e.target.id;
+options.forEach(button => { button.addEventListener('click', getPlayerChoice) });
+
+function getPlayerChoice(event) {
+    playerChoice = event.target.getAttribute('id');
     playRound(playerChoice, computerPlay());
 }
 
@@ -36,24 +37,24 @@ function playRound(playerSelection, computerSelection) {
         computerPoints.textContent = ++computerScore;
         roundResults.textContent = "You lost this round! :(";
     }
+    roundsPlayed++;
+    //console.log(roundsPlayed);
     checkWinner();
 }
 
 function checkWinner() {
     if (computerScore === 5) {
-        roundResults.textContent = winnerResults["computer"][0];
-        roundResults.style.color = winnerResults["computer"][1];
-        endGame();
+        endGame("computer");
     } else if (playerScore === 5) {
-        roundResults.textContent = winnerResults["player"][0];
-        roundResults.style.color = winnerResults["player"][1];
-        endGame();
+        endGame("player");
     } else {
         getPlayerChoice();
     }
 }
 
-function endGame() {
+function endGame(winner) {
+    roundResults.textContent = winnerResults[winner][0] + ` in ${roundsPlayed} rounds!`;
+    roundResults.style.color = winnerResults[winner][1];
     options.forEach(button => {
         button.removeEventListener('click', getPlayerChoice);
     })
