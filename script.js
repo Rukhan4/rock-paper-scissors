@@ -3,6 +3,12 @@ let computerWins = false;
 let playerScore = 0;
 let computerScore = 0;
 let gameon = true;
+let playerPoints = document.querySelector('.playerScore');
+let options = document.querySelectorAll('div.options button');
+let computerPoints = document.querySelector('.computerScore');
+let roundResults = document.querySelector('.result-box');
+
+options.forEach(button => { button.addEventListener('click', getPlayerChoice) });
 
 function computerPlay() {
     let choices = ['rock', 'paper', 'scissors'];
@@ -12,14 +18,16 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     // validate user input
-    while (true) {
-        playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-        if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
-            break;
-        } else {
-            alert("Please enter rock, paper, or scissors.");
-        }
-    }
+    // while (true) {
+    //     playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+    //     if (playerSelection == "rock" ||
+    //         playerSelection == "paper" ||
+    //         playerSelection == "scissors") {
+    //         break;
+    //     } else {
+    //         alert("Please enter rock, paper, or scissors.");
+    //     }
+    // }
     computerSelection = computerPlay();
     if (playerSelection === computerSelection) {
         playerWins = false;
@@ -40,13 +48,15 @@ function game() {
     while (gameon) {
         round = playRound();
         if (playerWins) {
-            playerScore++;
-            console.log("You win this round! :)")
+            playerPoints.textContent == ++playerScore;
+            roundResults.textContent = "You win this round! :)";
+            //console.log("You win this round! :)")
         } else if (computerWins) {
-            computerScore++;
-            console.log("You lost this round! :(")
+            computerPoints.textContent == ++computerScore;
+            roundResults.textContent = "You lost this round! :(";
+            //console.log("You lost this round! :(")
         } else {
-            console.log("Tie!")
+            roundResults.textContent = "Tie!"
         }
         if (playerScore === 5) {
             gameon = false;
@@ -63,4 +73,8 @@ function game() {
     }
 }
 
-console.log(game());
+function getPlayerChoice(e) {
+    let playerSelection = (e.target.id);
+    playerChoice = e.target.textContent;
+    game(playerSelection, computerPlay());
+}
