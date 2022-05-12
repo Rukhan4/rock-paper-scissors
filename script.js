@@ -27,15 +27,15 @@ function getPlayerChoice(event) {
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     if (playerSelection === computerSelection) {
-        roundResults.textContent = "Tie!"
+        roundResults.textContent = `Round ${roundsPlayed + 1} is a tie!`;
     } else if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'paper' && computerSelection === 'rock') ||
         (playerSelection === 'scissors' && computerSelection === 'paper')) {
         playerPoints.textContent = ++playerScore;
-        roundResults.textContent = "You win this round! :)";
+        roundResults.textContent = `You win round ${roundsPlayed + 1}!`;
     } else {
         computerPoints.textContent = ++computerScore;
-        roundResults.textContent = "You lost this round! :(";
+        roundResults.textContent = `You lost round ${roundsPlayed + 1}!`;
     }
     roundsPlayed++;
     //console.log(roundsPlayed);
