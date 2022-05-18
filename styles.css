@@ -91,6 +91,10 @@ h2 {
     border-radius: 5px;
 }
 
+button:active {
+    background-color: rgb(214, 162, 84);
+}
+
 .footer {
     position: fixed;
     left: 0;
