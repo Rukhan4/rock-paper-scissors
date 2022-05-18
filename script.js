@@ -1,6 +1,10 @@
 let playerScore = 0;
 let computerScore = 0;
 let roundsPlayed = 0;
+
+let yay = new Audio('./sounds/yay.mp3');
+let aww = new Audio('./sounds/aww.mp3');
+
 const winnerResults = {
     computer: ["You lost", 'red'],
     player: ["You won", 'green']
@@ -45,8 +49,10 @@ function playRound(playerSelection, computerSelection) {
 function checkWinner() {
     if (computerScore === 5) {
         endGame("computer");
+        aww.play();
     } else if (playerScore === 5) {
         endGame("player");
+        yay.play();
     } else {
         getPlayerChoice();
     }
